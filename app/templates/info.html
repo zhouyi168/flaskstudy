@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询</title>
+    <!--<script TYPE="text/javascript">-->
+        <!--var end = document.getElementById("endtime");-->
+        <!--var date = new Date();-->
+        <!--var month_t = date.getMonth().toString();-->
+        <!--if (date.getMonth() + 1 < 10)-->
+            <!--month_t = '0' + (date.getMonth() + 1);-->
+
+        <!--var day_t = date.getDate().toString();-->
+        <!--if (date.getDate() < 10)-->
+            <!--day_t = '0' + (date.getDate() + 1);-->
+
+        <!--var dateString = date.getFullYear() + "-" + (month_t) + "-" + day_t;-->
+        <!--start.value = dateString;-->
+
+    <!--</script>-->
+</head>
+<body bgcolor="#bdb76b">
+    <style>
+        .searchbtn{
+            position: absolute;
+            left: 1200px;
+            top:75px;
+            width: 108px;
+            height: 44px;
+            line-height: 45px;
+            line-height: 44px\9;
+            padding: 0;
+            background: 0 0;
+            background-color: #4e6ef2;
+            border-radius: 0 10px 10px 0;
+            font-size: 17px;
+            color: #fff;
+            box-shadow: none;
+            font-weight: 400;
+            border: none;
+            outline: 0;
+        }
+        .schip{
+            position: absolute;
+            left: 250px;
+            top:78px;
+            width: 160px;
+            height: 30px;
+        }
+        .beginip{
+            position: absolute;
+            left: 580px;
+            top:78px;
+            width: 160px;
+            height: 30px;
+        }
+        .np{
+            position: absolute;
+            left: 200px;
+            top:72px;
+        }
+        .yearp{
+            position: absolute;
+            left: 500px;
+            top:72px;
+        }
+        .yearp1{
+            position: absolute;
+            left: 780px;
+            top:72px;
+        }
+        .endip{
+            position: absolute;
+            left: 860px;
+            top:78px;
+            width: 160px;
+            height: 30px;
+        }
+        .tb{
+            position: absolute;
+            left: 150px;
+            top:200px;
+            text-align: center;
+        }
+        .resultp{
+            position: absolute;
+            left: 700px;
+            top:400px;
+            font-size: 30px;
+            color: cornsilk;
+            letter-spacing: 10px;
+        }
+    </style>
+    <div>
+        <form method="post" action="http://127.0.0.1:5000/doSearch">
+            <p class="np">名字</p>
+            <input type="text" name="title" placeholder="" class="schip" />
+            <p class="yearp">开始时间</p>
+            <input type="date" id="begintime" name="begintime" value={{begintime}} placeholder="" class="beginip"/>
+            <p class="yearp1">结束时间</p>
+            <input type="date"  id="endtime" name="endtime" value={{endtime}} placeholder="" class="endip"/>
+            <input type="submit" name="searchBtn" value="查询" class="searchbtn" onclick="unhiden()"/>
+        </form>
+    </div>
+    <div>
+        <table border="1" class="tb" >
+            <thead>
+                <tr>
+                    <th style="width: 70px">序号</th>
+                    <th style="width: 400px">标题</th>
+                    <th style="width: 200px">点击量</th>
+                    <th style="width: 250px">上传时间</th>
+                    <th style="width: 250px">更新时间</th>
+                </tr>
+            </thead>
+            <tbody id="tbb" >
+
+
+                {% for i in u %}
+                    <tr>
+                        <td style="width: 50px">{{i[0]}}</td>
+                        <td style="width: 300px">{{i[1]}}</td>
+                        <td style="width: 100px">{{i[2]}}</td>
+                        <td style="width: 150px">{{i[3]}}</td>
+                        <td style="width: 150px">{{i[4]}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="resultp">{{p}}</p>
+    </div>
+
+
+
+</body>
+
+</html>

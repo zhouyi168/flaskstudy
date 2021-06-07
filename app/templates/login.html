@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body bgcolor="#bdb76b">
+    <style>
+        .mystyle {
+            margin-left: 620px;
+        }
+        .inputstyle1{
+            position: absolute;
+            left: 720px;
+            top:78px;
+            width: 160px;
+            height: 30px;
+        }
+        .inputstyle2{
+            position: absolute;
+            left: 720px;
+            top:135px;
+            width: 160px;
+            height: 30px;
+        }
+        .btn1{
+            position: absolute;
+            left:700px;
+            top:250px;
+            width: 70px;
+            height: 35px;
+            background-color: cadetblue;
+        }
+        .rfrbtn{
+            position: absolute;
+            left:800px;
+            top:250px;
+            width: 70px;
+            height: 35px;
+            background-color: cadetblue;
+        }
+    </style>
+    <!--&lt;!&ndash;<script>&ndash;&gt;-->
+        <!--&lt;!&ndash;function clear(name) {&ndash;&gt;-->
+            <!--&lt;!&ndash;document.getElementsByName(name).values()=''&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+    <!--</script>-->
+    <script>
+        function myrefresh() {
+            window.location.reload();
+            $('.text input').val('');
+
+        }
+    </script>
+    <h1 style="margin-left: 700px">登录</h1>
+    <form name="myForm1" action="http://127.0.0.1:5000/loginSubmit" method="post">
+        <div class="mystyle">
+            <b>用户名</b><br/><br/>
+            <input type="text" name="username" value="" placeholder="{{userError}}" class="inputstyle1" />
+            <!--<p id="userError">{{userError}}</p>-->
+            <br/>
+            <b>密码</b>
+            <input type="text" name="password" value="" placeholder="{{pwdError}}"
+                   class="inputstyle2" onclick="validateForm()"/>
+            <!--<p id="pwdError">{{pwdError}}</p>-->
+        </div>
+        <input type="submit" value="登录" class="btn1" >
+        <input type="button" onclick="myrefresh()" value="重置" class="rfrbtn" />
+    </form>
+
+
+</body>
+</html>

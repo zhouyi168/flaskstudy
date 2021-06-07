@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >注册</title>
+</head>
+<body style="background-color: azure">
+    <style type="text/css">
+        .h{margin-left: 680px}
+        .mydiv{margin-left: 600px}
+        .btn1{position: absolute;
+              left:650px;
+              top:250px;
+              width: 60px;
+              height: 35px}
+        .btn2{position: absolute;
+              left:750px;
+              top:250px;
+              width: 60px;
+              height: 35px}
+    </style>
+
+    <h1 class="h">注册</h1>
+    <form method="post" action="http://127.0.0.1:5000/registerserver">
+        <div class="mydiv" >
+            用户名：
+            <input type="text" name="username"   placeholder="" />
+            <br/>
+            密码：
+            <input type="text" name="password"  placeholder=""/>
+            <br/>
+            性别：
+            <input type="text" name="sex"  placeholder="" />
+            <br/>
+            手机号：
+            <input type="text" name="telephone"  placeholder="" />
+            <br/>
+            邮箱：
+            <input type="text" name="address"  placeholder="" />
+        </div>
+        <br/>
+        <br/>
+        <input type="submit" value="提交" class="btn1" />
+    </form>
+    <script>
+        function bntOncheck() {
+            window.location.href="http://127.0.0.1:5000/login"
+        }
+    </script>
+    <div>
+        <button onclick="bntOncheck()" class="btn2">登录</button>
+    </div>
+
+    <!--<form action="http://127.0.0.1:5000/login" method="get">-->
+        <!--<input type="submit" value="登录" style="margin-left: 650px">-->
+    <!--</form>-->
+
+</body>
+</html>
